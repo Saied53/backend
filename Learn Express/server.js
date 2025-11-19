@@ -1,4 +1,4 @@
-const app = require('./lesson 1/app')
+const app = require('./lesson 2/app')
 const PORT = 3000;
 
 app.listen(PORT, () => {
