@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const users = require("./models/users.model");
+const userRouter = require("./routes/user.route")
 const app = express();
 const path = require("path");
 
@@ -9,11 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get("/users", (req, res) => {
-  res.status(200).json({
-    users,
-  });
-});
+app.use("/users", userRouter)
+
+
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/index.html"));
